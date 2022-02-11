@@ -1,34 +1,9 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+The testeract is an application that generates a set of all possible sets. 
 
-## Getting Started
+For instance, say you were building an online store, and you wanted to generate a list of every product you plan to sell. Suppose you sell want to sell shirts in two sizes (large and small) and two colors (black and white). The set of sets contains 4 items: large black, small black, large white, small white. This is called "the cartesian product."
 
-First, run the development server:
+For data with only two dimensions (like size and color) it's pretty easy to represent in a spreadsheet with columns and rows. But once you add more dimensions, it gets really hard to represent in a maintainable way.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Sticking with the example above, imagine we also wanted to store the dimensions sleeve (long or short), collar (v-neck or crew), and pocket (true or false). Now there are A LOT more options: large white long sleeve vneck pocket tee, small white long sleeve vneck pocket tee, large black long sleeve vneck pocket tee, and so on. 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The set of sets expands exponentially as more dimensions and values are added. With, say, 4 dimensions each having 5 possible values, there are 625 possible combinations (4^5). With **5** dimensions each having 5 possible values, there 3,125.

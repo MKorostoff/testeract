@@ -1,0 +1,13 @@
+- Remove Dimensions
+- Reorder Dimensions
+- Edit Dimensions
+- Remove individual rows?
+- Download as CSV
+- Add about page
+- Add examples
+- Make notes editable
+- Checkbox on individual rows?
+- Add filters
+- Add sorting?
+- Persist numbering through reordering?
+- Show loading while re-render

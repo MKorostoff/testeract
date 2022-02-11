@@ -320,6 +320,11 @@ caniuse-lite@^1.0.30001283:
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001311.tgz#682ef3f4e617f1a177ad943de59775ed3032e511"
   integrity sha512-mleTFtFKfykEeW34EyfhGIFjGCqzhh38Y0LhdQ9aWF+HorZTtdgKV/1hEE0NlFkG2ubvisPV6l400tlbPys98A==
 
+cartesian-product-multiple-arrays@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/cartesian-product-multiple-arrays/-/cartesian-product-multiple-arrays-1.0.9.tgz#f0728557f6ea7963f42df78bdb2f5fdd3ec41692"
+  integrity sha512-XwVkPg/Vv8j9HpokEkoKiPC0jBgUo2sK1JL33eNK6BoHyL+AzGx8VVeDMo62TO9tki+WGJCmcVSF7DS3r6S2+A==
+
 chalk@^4.0.0:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.2.tgz#aac4e2b7734a740867aeb16bf02aad556a1e7a01"

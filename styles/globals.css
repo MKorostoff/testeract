@@ -5,12 +5,119 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 * {
   box-sizing: border-box;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-inner {
+  background-color: white;
+  height: 80%;
+  max-height: 800px;
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+  padding: 1em;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.field input {
+  height: 2.3em;
+  line-height: 2.3em;
+  font-size: 1.2em;
+  width: 100%;
+  margin-top: 10px;
+  box-shadow: inset 1px 1px 2px rgb(0 0 0 / 50%);
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+.field-wrapper {
+  border: 1px solid #a5a5a5;
+  padding: 1em;
+  border-radius: 10px;
+  margin-bottom: 1em;
+  background-color: #84d170;
+}
+.error-true input {
+  border: 3px solid #a70000;
+}
+.error {
+  color: #a70000;
+  font-style: italic;
+  font-size: 10px;
+  margin-top: 5px;
+}
+.helptext {
+  font-size: 10px;
+  color: #5a5a5a;
+}
+.close {
+  position: absolute;
+  cursor: pointer;
+  right: 10px;
+  top: 0;
+  font-size: 40px;
+}
+.combos {
+  border-collapse: collapse;
+  max-width: 80%;
+  text-align: center;
+  margin: auto;
+}
+.combos-header {
+  position: sticky;
+  top: 0;
+}
+.combos-header th {
+  background-color: #50c733;
+  line-height: 3;
+  padding: 0 30px;
+  font-weight: normal;
+  border: 2px solid white;
+}
+.remove {
+  cursor: pointer;
+  color: #682b2b;
+}
+.combos-row {
+  line-height: 3;
+}
+.combos-row:nth-child(odd) {
+  background-color: #ebebeb;
+}
+.add-dimension-wrapper {
+  margin-top: 10px;
+}
+.add-dimension {
+  cursor: pointer;
+  background-color: #bedbff;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: -1px 2px 4px;
+}
+.field {
+  margin-bottom: 1em;
+}
+.field.last {
+  margin-bottom: 0;
+}
+.save {
+  margin-bottom: 2em;
+  text-align: center;
+}
+.save button {
+  font-size: 18px;
+  border-radius: 10px;
+  background-color: #bddbff;
+  padding: 4px 55px;
+  cursor: pointer;
 }
