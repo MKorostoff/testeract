@@ -101,7 +101,7 @@ export default function Home() {
         <h1>Welcome to The Testeract</h1>
         <button onClick={showDimensionForm}>Add Dimension</button>
         <Table headers={headers} combinations={combinations} actions={{removeDimension}}/>
-        {modalOpen ? <Modal actions={{hideModal}} children={modalContent} title={modalTitle} /> : null}
+        {modalOpen ? <Modal actions={{hideModal}} title={modalTitle}>{modalContent}</Modal> : null}
       </main>
     </div>
   )

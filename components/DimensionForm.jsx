@@ -56,7 +56,7 @@ export default function DimensionForm({actions}) {
           <label htmlFor={`dimension_value${i}`}>Dimension Value {i}</label>
           <div>
             <input name={`dimension_value${i}`} type="text"></input>
-            {i == 1 ? <div className="helptext">e.g. "Red", "Green", "Blue"</div> : null}
+            {i == 1 ? <div className="helptext">e.g. &quot;Red&quot;, &quot;Green&quot;, &quot;Blue&quot;</div> : null}
           </div>
         </div>
       )
@@ -72,7 +72,7 @@ export default function DimensionForm({actions}) {
           <label htmlFor="dimension_name">Dimension Name</label>
           <div>
             <input name="dimension_name" type="text"></input>
-            <div className="helptext">e.g. "Color"</div>
+            <div className="helptext">e.g. &quot;Color&quot;</div>
           </div>
         </div>
       </div>
