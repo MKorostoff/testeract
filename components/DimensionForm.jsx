@@ -20,6 +20,7 @@ export default function DimensionForm({actions}) {
     setValueError(false);
 
     const name = e.target.dimension_name.value;
+    //Todo: handle name collisions
     if (!name) {
       setError("Dimension name is required")
       setNameError(true);
@@ -30,7 +31,10 @@ export default function DimensionForm({actions}) {
     let values = [];
     [...e.target.elements].forEach((field) => {
       if (field.value && field.name.startsWith('dimension_value')) {
-        values.push(field.value.trim())
+        let newValue = field.value.trim();
+        if (!values.includes(newValue)) {//Enforce unique
+          values.push(newValue)
+        }
       }
     })
     if (!values.length) {

@@ -1,5 +1,6 @@
 - Remove Dimensions
 - Reorder Dimensions
+- Group by dimension
 - Edit Dimensions
 - Remove individual rows?
 - Download as CSV

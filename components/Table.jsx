@@ -1,12 +1,18 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function Table({headers, combinations, actions}) {
   const [animatingColumn, setAnimatingColumn] = useState(null);
+  const [openDropDown, setOpenDropdown] = useState(null);
 
   if (!headers || !combinations) return null;
 
+  function handleGearClick(e) {
+    setOpenDropdown(e.target.dataset.column);
+  }
+
   function remove(e) {
-    setAnimatingColumn(e.target.dataset.cardinality);
+    setOpenDropdown(null);
+    setAnimatingColumn(e.target.dataset.column);
     
     setTimeout(() => {
       actions.removeDimension(e.target.dataset.name)
@@ -26,13 +32,21 @@ export default function Table({headers, combinations, actions}) {
           
           <tr className="combos-header">
             <th>#</th>
-            {headers.map((header, i) => <th className={`column column-${i}`} key={header}>{header} <a className="remove" data-cardinality={i} data-name={header} onClick={remove}>⊗</a></th>)}
+            {headers.map((header, i) => {
+              return (
+                <th className={`column column-${i}`} key={header}>
+                  {header}
+                  <a className="remove" data-name={header} data-column={i} onClick={handleGearClick}>⚙</a>
+                  {(openDropDown == i) ? <DropDown column={i} name={header} actions={{remove, setOpenDropdown}}/> : null}
+                </th>
+              )
+            })}
             <th>Notes</th>
           </tr>
 
-          {combinations.map((set, i) => <tr className="combos-row" key={`set${i}`}>
-            <td>{i+1}</td>
-            {set.map((item, ii) => <td className={`column column-${ii}`} key={`item${ii}`}>{item}</td>)}
+          {combinations.map((set, ii) => <tr className="combos-row" key={`set${ii}`}>
+            <td>{ii+1}</td>
+            {set.map((item, iii) => <td className={`column column-${iii}`} key={`item${iii}`}>{item}</td>)}
             <td></td>
           </tr>)}
 
@@ -40,4 +54,28 @@ export default function Table({headers, combinations, actions}) {
       </table>
     </>
   );
+}
+
+function DropDown({column, name, actions}) {
+  const ref = useRef();
+  
+  useEffect(() => {
+    //Close if someone clicks outside
+    document.addEventListener('click', (e) => {
+      if (ref.current && !ref.current.contains(e.target)) {
+        actions.setOpenDropdown(null);
+      }
+    })
+  }, []);
+
+  return (
+    <div ref={ref} className="dropdown">
+      <ul className="menu">
+        <li className="menu-item">Edit</li>
+        <li className="menu-item">Move Left</li>
+        <li className="menu-item">Move Right</li>
+        <li className="menu-item" onClick={actions.remove} data-column={column} data-name={name}>Delete</li>
+      </ul>
+    </div>
+  )
 }
