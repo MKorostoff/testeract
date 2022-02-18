@@ -8,6 +8,31 @@ body {
 * {
   box-sizing: border-box;
 }
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.page-title {
+  text-align: center;
+}
+.buttons {
+  margin-bottom: 20px;
+  display: flex;
+  width: 200px;
+  justify-content: space-between;
+}
+.confirmation-buttons {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  width: fit-content;
+}
+.confirmation-buttons button {
+  font-size: 30px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
 .modal {
   position: fixed;
   top: 0;
@@ -18,6 +43,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.modal-title {
+  text-align: center;
 }
 .modal-inner {
   background-color: white;
@@ -106,18 +134,20 @@ body {
   font-size: 14px;
 }
 .menu-item {
-  margin: 0;
   line-height: 1.5;
   text-decoration: underline;
   cursor: pointer;
+  font-size: 24px;
+  margin: 10px;
 }
 .menu-item:hover {
   text-decoration: none;
   color: blue;
 }
-.remove {
+.edit-column {
   cursor: pointer;
-  color: #682b2b;
+  margin-left: 20px;
+  color: darkgreen;
 }
 .combos-header > .column {
   position: relative;

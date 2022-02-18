@@ -15,7 +15,7 @@ export default function Table({headers, combinations, actions}) {
     setAnimatingColumn(e.target.dataset.column);
     
     setTimeout(() => {
-      actions.removeDimension(e.target.dataset.name)
+      actions.removeDimension(e.target.dataset.column)
     }, 400);
     
     setTimeout(() => {
@@ -36,18 +36,16 @@ export default function Table({headers, combinations, actions}) {
               return (
                 <th className={`column column-${i}`} key={header}>
                   {header}
-                  <a className="remove" data-name={header} data-column={i} onClick={handleGearClick}>⚙</a>
-                  {(openDropDown == i) ? <DropDown column={i} name={header} actions={{remove, setOpenDropdown}}/> : null}
+                  <a className="edit-column" data-name={header} data-column={i} onClick={handleGearClick}>▼</a>
+                  {(openDropDown == i) ? <DropDown column={i} name={header} actions={{remove, setOpenDropdown, editDimension: actions.editDimension}}/> : null}
                 </th>
               )
             })}
-            <th>Notes</th>
           </tr>
 
           {combinations.map((set, ii) => <tr className="combos-row" key={`set${ii}`}>
             <td>{ii+1}</td>
             {set.map((item, iii) => <td className={`column column-${iii}`} key={`item${iii}`}>{item}</td>)}
-            <td></td>
           </tr>)}
 
         </tbody>
@@ -71,9 +69,7 @@ function DropDown({column, name, actions}) {
   return (
     <div ref={ref} className="dropdown">
       <ul className="menu">
-        <li className="menu-item">Edit</li>
-        <li className="menu-item">Move Left</li>
-        <li className="menu-item">Move Right</li>
+        <li className="menu-item" onClick={actions.editDimension} data-column={column}>Edit</li>
         <li className="menu-item" onClick={actions.remove} data-column={column} data-name={name}>Delete</li>
       </ul>
     </div>

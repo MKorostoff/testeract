@@ -17,7 +17,7 @@ export default function Modal({title, children, actions}) {
     <div className="modal">
       <div ref={ref} className="modal-inner">
         <div>
-          <h2>{title}</h2>
+          <h2 className="modal-title">{title}</h2>
           <a className="close" onClick={actions.hideModal}>×</a>
         </div>
         {children}

@@ -1,7 +1,10 @@
 import { useState } from "react";
 
-export default function DimensionForm({actions}) {
-  const [valueCount, setValueCount] = useState(2);
+export default function DimensionForm({actions, dimension, column}) {
+  const valueCountInitial = dimension?.values?.length || 2;
+  const editMode = (dimension) ? true : false;
+
+  const [valueCount, setValueCount] = useState(valueCountInitial);
   const [error, setError] = useState(null);
   const [nameError, setNameError] = useState(false);
   const [valueError, setValueError] = useState(false);
@@ -43,20 +46,27 @@ export default function DimensionForm({actions}) {
     }
     //When all validation has passed:
     else {
-      actions.addDimension(name, values);
+      if (editMode) actions.updateDimension(column, name, values);
+      else actions.addDimension(name, values);
       actions.hideModal();
     }
+  }
+  function getFieldValue(n) {
+    return (editMode) ? dimension.values[n] : null;
+  }
+  function getTitle() {
+    return (editMode) ? dimension.name : null;
   }
   
   function fields(n) {
     let fields = [];
-    for (let i = 1; i <= valueCount; i++) {
+    for (let i = 0; i < valueCount; i++) {
       fields.push(
         <div key={`field${i}`} className={`error-${valueError} field${i == valueCount ? ' last' : ''}`}>
-          <label htmlFor={`dimension_value${i}`}>Dimension Value {i}</label>
+          <label htmlFor={`dimension_value${i}`}>Dimension Value {i + 1}</label>
           <div>
-            <input name={`dimension_value${i}`} type="text"></input>
-            {i == 1 ? <div className="helptext">e.g. &quot;Red&quot;, &quot;Green&quot;, &quot;Blue&quot;</div> : null}
+            <input defaultValue={getFieldValue(i)} name={`dimension_value${i}`} type="text"></input>
+            {i == 0 ? <div className="helptext">e.g. &quot;Red&quot;, &quot;Green&quot;, &quot;Blue&quot;</div> : null}
           </div>
         </div>
       )
@@ -71,7 +81,7 @@ export default function DimensionForm({actions}) {
         <div className={`field dimension-name error-${nameError}`}>
           <label htmlFor="dimension_name">Dimension Name</label>
           <div>
-            <input name="dimension_name" type="text"></input>
+            <input defaultValue={getTitle()} name="dimension_name" type="text"></input>
             <div className="helptext">e.g. &quot;Color&quot;</div>
           </div>
         </div>

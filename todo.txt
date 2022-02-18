@@ -1,7 +1,9 @@
-- Remove Dimensions
+MVP:
+X Remove Dimensions
+X Edit Dimensions
+
 - Reorder Dimensions
 - Group by dimension
-- Edit Dimensions
 - Remove individual rows?
 - Download as CSV
 - Add about page
