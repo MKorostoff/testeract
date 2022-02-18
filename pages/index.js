@@ -1,17 +1,21 @@
 import Head from 'next/head'
 import { cartesianProduct } from 'cartesian-product-multiple-arrays';
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Modal from 'components/Modal';
 import Table from 'components/Table';
+import About from 'components/About';
+import Examples from 'components/Examples';
+import Copy from 'lib/Copy';
 import DimensionForm from 'components/DimensionForm';
 
 export default function Home() {
 
-  const defaultDimensions = [
-    {name: "Style", values: ['short sleeve', 'long sleeve']},
-    {name: "Size", values: ['large', 'medium', 'small']},
-    {name: "Color", values: ['black', 'white', 'blue']},
+  let defaultDimensions = [
+    {name: "Browser", values: ['Chrome', 'Firefox', 'Safari', 'Edge']},
+    {name: "Page", values: ['Homepage', 'Profile Page', 'Product Page', 'Product List Page']},
+    {name: "User", values: ['Logged In', 'Logged Out', 'Admin']},
   ];
+  // defaultDimensions = Examples.AndroidDevices;
   const [dimensions, setDimensions] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [combinations, setCombinations] = useState([]);
@@ -19,6 +23,7 @@ export default function Home() {
   const [modalContent, setModalContent] = useState(<></>);
   const [modalTitle, setModalTitle] = useState('');
   const [isDirty, setDirty] = useState(false);
+  const [copied, setCopied] = useState(false);
   
   //Load saved data from memory, or use the default
   useEffect(function() {
@@ -82,6 +87,16 @@ export default function Home() {
     setModalTitle("Are you sure you want to clear all data?");
     showModal();
   }
+  function about() {
+    setModalContent(<About/>);
+    setModalTitle("About");
+    showModal();
+  }
+  function examples() {
+    setModalContent(<Examples actions={{setDimensions, hideModal}}/>);
+    setModalTitle("Examples");
+    showModal();
+  }
 
   // Take all the values in the dimensions object and create a set of all sets.
   // For instance, given the sets [small,large] and [chocolate,vanilla] the set
@@ -107,6 +122,11 @@ export default function Home() {
       localStorage.setItem('dimensions', JSON.stringify(dimensions));
     }
   }
+  function copyTable() {
+    Copy();
+    setCopied(true);
+  }
+
 
   //Set the initial values for the data table and set them again every
   //time a new dimension is added
@@ -114,7 +134,9 @@ export default function Home() {
     combine();
     header();
     save();
+    setCopied(false);
   },[dimensions])
+
 
   return (
     <div>
@@ -126,10 +148,21 @@ export default function Home() {
 
       <main>
         <h1 className="page-title">Welcome to The Testeract</h1>
-        <div></div>
+        <div className="about">
+          <p>Testeract is a simple tool that generates a list of all the possible combinations for 
+          multiple dimensions. It&apos;s useful for generating testing scenarios in software development, 
+          and lots of other situations. I mostly use this tool to generate an initial list, which I 
+          then copy to a spreadsheet for further refinement.</p>
+          <div className="about-links">
+            <span>[<a className="learn-more about-link" onClick={about}>Learn More</a>]</span>
+            <span>[<a className="example about-link" onClick={examples}>Examples</a>]</span>
+          </div>
+        </div>
         <div className="buttons">
           <button onClick={showDimensionForm}>Add Dimension</button>
           <button onClick={attemptClear}>Clear All</button>
+          <button onClick={copyTable}>Copy</button>
+          <div className="copied">{copied ? "copied!" : ""}</div>
         </div>
         <Table headers={headers} combinations={combinations} actions={{removeDimension, editDimension}}/>
         {modalOpen ? <Modal actions={{hideModal}} title={modalTitle}>{modalContent}</Modal> : null}

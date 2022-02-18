@@ -16,12 +16,49 @@ main {
 .page-title {
   text-align: center;
 }
+.about {
+  max-width: 600px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #7c7c7c;
+  padding: 10px;
+}
+.about-links {
+  display: flex;
+  justify-content: center;
+}
+.about-links > span {
+  margin-right: 10px;
+}
+.about-link {
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.image-wrapper {
+  max-width: 80%;
+  margin: auto;
+  padding: 5px;
+  background-color: #000000;
+}
+.mj {
+  max-width: 300px;
+}
 .buttons {
   margin-bottom: 20px;
   display: flex;
-  width: 200px;
+  width: 280px;
   justify-content: space-between;
+  position: relative;
 }
+.copied {
+  position: absolute;
+  right: 7px;
+  bottom: -13px;
+  font-size: 10px;
+  color: green;
+}
+
 .confirmation-buttons {
   display: flex;
   margin: auto;
@@ -183,5 +220,13 @@ main {
   border-radius: 10px;
   background-color: #bddbff;
   padding: 4px 55px;
+  cursor: pointer;
+}
+.example-list > li {
+  margin-bottom: 1em;
+}
+.example-link {
+  color: blue;
+  text-decoration: underline;
   cursor: pointer;
 }

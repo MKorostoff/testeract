@@ -27,7 +27,7 @@ export default function Table({headers, combinations, actions}) {
     <>
       <style>{`.column-${animatingColumn} {transition: opacity 600ms; opacity: 0}`}</style>
 
-      <table className="combos">
+      <table id="table" className="combos">
         <tbody>
           
           <tr className="combos-header">
