@@ -16,7 +16,7 @@ export default function About() {
         <Image layout="responsive" src={TwoDimension}/>
       </div>
 
-      <p>But once you add more dimensions, it gets really hard to represent in a maintainable way. Suppose we also wanted to offer each color/size combo in different styles: vneck, crew neck, and turtle neck. You might figure the answer is to create one two dimensional table for each criteria in the new dimension:</p>
+      <p>But once you add more dimensions, it gets really hard to represent in a maintainable way. Suppose we also wanted to offer each color/size combo in different styles: vneck, crew neck, and turtle neck. You might figure the answer is to create multiple two dimensional tables:</p>
 
       <div className="image-wrapper">
         <Image layout="responsive" src={ThreeDimension}/>
