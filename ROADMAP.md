@@ -1,0 +1,15 @@
+MVP:
+- ~~Remove Dimensions~~ (done)
+- ~~Edit Dimensions~~ (done)
+- ~~Add about page~~ (done)
+- ~~Add example data sets~~ (done)
+- Add capability to Reorder Dimensions
+- Group by dimension
+- Remove individual rows?
+- Download as CSV
+- Add exclusion rule capability (e.g. "A combination of X and Y cannot occur")
+- Add capability to add notes on each row
+- Checkbox on individual rows?
+- Add filters
+- Add sorting?
+- Persist numbering through reordering?
