@@ -1,4 +1,3 @@
-MVP:
 - ~~Remove Dimensions~~ (done)
 - ~~Edit Dimensions~~ (done)
 - ~~Add about page~~ (done)
