@@ -3,6 +3,6 @@ module.exports = {
   basePath: '/testeract',
   images: {
     loader: 'akamai',
-    path: '',
+    path: '/',
   }
 }

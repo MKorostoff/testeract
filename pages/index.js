@@ -147,7 +147,7 @@ export default function Home() {
         <div className="about">
           <p>Testeract is a simple tool that generates a list of all the possible combinations for 
           multiple dimensions. It&apos;s useful for generating testing scenarios in software development, 
-          and lots of other situations. I mostly use this tool to generate an initial list, which I 
+          and lots of other situations, see the links below for more. I mostly use this tool to generate an initial list, which I 
           then copy to a spreadsheet for further refinement.</p>
           <div className="about-links">
             <span>[<a className="learn-more about-link" onClick={about}>Learn More</a>]</span>
