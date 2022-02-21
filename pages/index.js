@@ -152,6 +152,7 @@ export default function Home() {
           <div className="about-links">
             <span>[<a className="learn-more about-link" onClick={about}>Learn More</a>]</span>
             <span>[<a className="example about-link" onClick={examples}>Examples</a>]</span>
+            <span>[<a className="about-link" href="https://github.com/MKorostoff/testeract" target="_blank">Source Code</a>]</span>
           </div>
         </div>
         <div className="buttons">

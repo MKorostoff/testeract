@@ -8,21 +8,23 @@ import MJ from "img/mj.gif";
 export default function About() {
   return (
     <div>
-      <p>The testeract is an application that generates a set of all possible sets. The name is a combination of &quot;test&quot; and &quot;<a href="https://en.wikipedia.org/wiki/Tesseract" target="_blank">tesseract</a>&quot;</p>
+      <p>The testeract is an application that generates a set of all possible sets. For instance, if I&apos;m writing some software, and need to think of all the browser/device/breakpoint combinations, rather than writing them all out, I can input a list of browsers, a list of devices, and a list of breakpoints, and it will spit out every possible combination of those variables. The name is a combination of &quot;test&quot; and &quot;<a href="https://en.wikipedia.org/wiki/Tesseract" target="_blank">tesseract</a>.&quot;</p>
 
-      <p>For instance, say you were building an online store, and you wanted to generate a list of every product you plan to sell. Suppose you want to sell shirts in two sizes (large and small) and two colors (blue and green). The set of sets contains 4 items: large blue, small blue, large green, small green. This is called &quot;the <a href="https://www.sciencedirect.com/topics/computer-science/cartesian-product" target="_blank"> cartesian product</a>.&quot; For data with only two dimensions (like size and color) it&apos;s pretty easy to represent in a spreadsheet with columns and rows:</p> 
+      <p>Combining multiple dimensions of data in this way is called &quot;finding the <a href="https://www.sciencedirect.com/topics/computer-science/cartesian-product" target="_blank"> cartesian product</a>.&quot; or a <a href="https://www.geeksforgeeks.org/sql-join-cartesian-join-self-join/" target="_blank">cartesian join</a> in SQL. As far as I can tell, there were no GUI tools prior to this one that make it simple to find the cartesian product for arbitrary data sets. You can do it manually, but it's not really maintainable.</p>
+      
+      <p>For instance, say you were building an online store, and you wanted to generate a list of every product you plan to sell. Suppose you want to sell shirts in two sizes (large and small) and two colors (blue and green). The set of sets contains 4 items: large blue, small blue, large green, small green. For data with only two dimensions (like size and color) it&apos;s pretty easy to represent in a spreadsheet with columns and rows:</p> 
       
       <div className="image-wrapper">
         <Image alt="Image of an table having three rows and three columns" layout="responsive" src={TwoDimension}/>
       </div>
 
-      <p>But once you add more dimensions, it gets really hard to represent in a maintainable way. Suppose we also wanted to offer each color/size combo in different styles: vneck, crew neck, and turtle neck. You might figure the answer is to create multiple two dimensional tables:</p>
+      <p>But this approach really starts to break down after 2 dimensions. Suppose we also wanted to offer each color/size combo in different styles: vneck, crew neck, and turtle neck. You might figure the answer is to create multiple two dimensional tables:</p>
 
       <div className="image-wrapper">
         <Image alt="Image of three tables, each having three rows and three columns" layout="responsive" src={ThreeDimension}/>
       </div>
 
-      <p>But what happens when we add a, fourth dimension?</p>
+      <p>But what happens when we add a fourth dimension?</p>
 
       <div className="image-wrapper">
         <Image alt="Image of six tables, each having three rows and three columns" layout="responsive" src={FourDimension}/>
