@@ -1,6 +1,6 @@
-import Head from 'next/head'
 import { cartesianProduct } from 'cartesian-product-multiple-arrays';
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react';
+import SEO from 'components/SEO';
 import Modal from 'components/Modal';
 import Table from 'components/Table';
 import About from 'components/About';
@@ -140,11 +140,7 @@ export default function Home() {
 
   return (
     <div>
-      <Head>
-        <title>Testeract</title>
-        <meta name="description" content="Create a sortable, filterable list of test cases" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <SEO />
 
       <main>
         <h1 className="page-title">Welcome to The Testeract</h1>
